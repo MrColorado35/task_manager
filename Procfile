@@ -1,1 +1,1 @@
-web: python app.py
+web: python task_mnger/app.py
