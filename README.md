@@ -37,3 +37,8 @@ We continually tweak and adjust this template to help give you the best experien
 --------
 
 Happy coding!
+
+
+I started this project as a part of Web Designer course from the Code Institute.
+As always, there was a little problem with deployment to heroku, 
+as their way of doing it is few years old and not always works. 
