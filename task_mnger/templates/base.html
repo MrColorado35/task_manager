@@ -24,6 +24,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.datepicker');
+                var instances = M.Datepicker.init(elems, options);
+            });
+              $(document).ready(function(){
+                $('.datepicker').datepicker();
+                });
+        </script>
+        <script>  
+                document.getElementById("matfix").addEventListener("click", function(e) {
+	            e.stopPropagation();
+                });
+        </script>  
         
         <!-- <script>
               $(document).ready(function(){
