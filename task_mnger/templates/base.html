@@ -13,7 +13,7 @@
         <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>   -->
 
         <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <link rel="stylesheet" href="assets/css/style.css"> -->
+        <link rel="stylesheet" href="assets/css/style.css"> 
         <title>Title</title>
     </head>
     <body>
@@ -31,12 +31,19 @@
                 document.getElementById("matfix").addEventListener("click", function(e) {
 	            e.stopPropagation();
                 });
+                document.getElementById("choosefix").addEventListener("click", function(e) {
+	            e.stopPropagation();
+                });                
         </script>  
         <script>
         //  document.addEventListener('DOMContentLoaded', function() {
         //         var elems = document.querySelectorAll('.datepicker');
         //         var instances = M.datepicker.init(elems, options);
         //     });
+             $(document).ready(function() {
+                    $('select').material_select();
+                });
+        
 
               $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
