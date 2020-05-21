@@ -17,12 +17,13 @@ mongo = PyMongo(app)
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
 
-@app.route('/add_task')
+@app.route('/add_task', methods=["POST", "GET"])
 def add_task():
-    return render_template('addtask.html',
-    categories=mongo.db.categories.find())
+    categories=mongo.db.categories.find()
+    category_list = [category for category in categories]
+    return render_template('addtask.html', categories=category_list)
 
-@app.route('/insert_task', methods=["POST"])
+@app.route('/insert_task', methods=["POST", "GET"])
 def insert_task():
     task = mongo.db.tasks
     task.insert_one(request.form.to_dict())
@@ -72,10 +73,22 @@ def update_category(category_id):
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
 
+
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
+
+@app.route('/insert_category', methods=["POST"])
+def insert_category():
+    categories = mongo.db.categories
+    category_doc = {'category_name': request.form.get('category_name')}   
+    categories.insert_one(category_doc)
+    return redirect(url_for('get_categories'))
+
+@app.route('/new_category')
+def new_category():
+    return render_template('addcategory.html')
 
 
 
